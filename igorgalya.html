@@ -1,0 +1,292 @@
+<!DOCTYPE html>  
+<html lang="ru">  
+
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Разработка на JavaScript</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            background-color: #000;  
+            color: #fff;  
+        }  
+
+        header {  
+            background-color: #d5006d;  
+            color: #fff;  
+            padding: 20px;  
+            text-align: center;  
+        }  
+
+        .menu-button {  
+            background: none;  
+            color: #fff;  
+            border: none;  
+            font-size: 20px;  
+            cursor: pointer;  
+        }  
+
+        nav {  
+            display: none; /* Скрываем меню по умолчанию */  
+            margin: 20px 0;  
+        }  
+
+        nav ul {  
+            list-style: none;  
+            padding: 0;  
+        }  
+
+        nav a {  
+            color: #fff;  
+            text-decoration: none;  
+            padding: 10px 15px;  
+            border: 1px solid #fff;  
+            border-radius: 5px;  
+            margin: 5px 0;  
+            display: block;  
+            transition: background 0.3s;  
+        }  
+
+        nav a:hover {  
+            background-color: #ff4081;  
+        }  
+
+        section {  
+            padding: 20px;  
+            border-bottom: 1px solid #d5006d;  
+        }  
+
+        h2 {  
+            color: #d5006d;  
+            border-bottom: 2px solid #d5006d;  
+            padding-bottom: 10px;  
+        }  
+
+        footer {  
+            background-color: #d5006d;  
+            color: #fff;  
+            text-align: center;  
+            padding: 10px;  
+            margin-top: 20px;  
+        }  
+
+        table {  
+            width: 100%;  
+            border-collapse: collapse;  
+            margin-top: 20px;  
+        }  
+
+        th,  
+        td {  
+            border: 1px solid #fff;  
+            padding: 10px;  
+            text-align: left;  
+        }  
+
+        th {  
+            background-color: #222;  
+        }  
+
+        .contact-form {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+        }  
+
+        .contact-form input,  
+        .contact-form textarea {  
+            width: 100%;  
+            max-width: 400px;  
+            margin: 10px 0;  
+            padding: 10px;  
+            border: 1px solid #fff;  
+            border-radius: 5px;  
+            background-color: #111;  
+            color: #fff;  
+        }  
+
+        .contact-form button {  
+            padding: 10px 20px;  
+            border: none;  
+            border-radius: 5px;  
+            background-color: #d5006d;  
+            color: #fff;  
+            cursor: pointer;  
+            transition: background 0.3s;  
+            width: 100%;  
+            max-width: 400px;  
+        }  
+
+        .contact-form button:hover {  
+            background-color: #ff4081;  
+        }  
+
+        /* Стиль для секций фото */  
+        .photo-section {  
+            display: flex;  
+            justify-content: space-evenly;  
+            margin-top: 20px;  
+        }  
+
+        .photo-container {  
+            width: 30%;  
+            text-align: center;  
+            cursor: pointer;  
+            background-color: #222;  
+            padding: 15px;  
+            border-radius: 5px;  
+            transition: background 0.3s;  
+        }  
+
+        .photo-container:hover {  
+            background-color: #444;  
+        }  
+
+        .developer-card {  
+            background-color: #222;  
+            padding: 20px;  
+            border-radius: 5px;  
+            margin-top: 20px;  
+        }  
+
+        img {  
+            width: 100%;   
+            border-radius: 5px;   
+            margin-bottom: 10px;  
+        }  
+    </style>  
+</head>  
+
+<body>  
+    <header>  
+        <h1>Разработка на JavaScript</h1>  
+        <button class="menu-button" onclick="toggleMenu()">Меню</button>  
+        <nav id="nav-menu">  
+            <ul>  
+                <li><a href="#about">О нас</a></li>  
+                <li><a href="#services">Услуги</a></li>  
+                <li><a href="#portfolio">Портфолио</a></li>  
+                <li><a href="#contact">Контакты</a></li>  
+            </ul>  
+        </nav>  
+    </header>  
+
+    <section id="about">  
+        <h2>О нас</h2>  
+        <p>Мы команда профессиональных разработчиков, специализирующаяся на создании веб-приложений с использованием языка JavaScript. Наша цель - предоставлять высококачественные решения для бизнеса, которые помогают нашим клиентам достичь успеха.</p>  
+    </section>  
+
+    <section id="services">  
+        <h2>Услуги</h2>  
+        <button onclick="toggleService('service1')">Услуга 1</button>  
+        <div id="service1" class="service-details" style="display:none;">  
+            <h3>Веб-разработка</h3>  
+            <p>Создание интерактивных и отзывчивых веб-сайтов с использованием HTML, CSS и JavaScript.</p>  
+        </div>  
+
+        <button onclick="toggleService('service2')">Услуга 2</button>  
+        <div id="service2" class="service-details" style="display:none;">  
+            <h3>Разработка SPA</h3>  
+            <p>Создание одностраничных приложений (SPA) с использованием современных фреймворков, таких как React и Angular.</p>  
+        </div>  
+
+        <button onclick="toggleService('service3')">Услуга 3</button>  
+        <div id="service3" class="service-details" style="display:none;">  
+            <h3>API интеграция</h3>  
+            <p>Интеграция сторонних API для улучшения функциональности вашего приложения.</p>  
+        </div>  
+    </section>  
+
+    <section id="portfolio">  
+        <h2>Портфолио</h2>  
+        <p>Мы гордимся нашими успешными проектами. Вот некоторые из них:</p>  
+        <ul>  
+            <li>Интернет-магазин: Полная разработка веб-приложения для интернет-магазина с полнофункциональной корзиной.</li>  
+            <li>Система управления контентом: Разработка CMS, позволяющая пользователям создавать и редактировать контент без навыков программирования.</li>  
+            <li>Сайт для стартапа: Создание современного сайта для презентации стартапа с интерактивными элементами.</li>  
+        </ul>  
+    </section>  
+
+    <section id="contact">  
+        <h2>Контакты</h2>  
+        <p>Свяжитесь с нами, чтобы обсудить ваш проект и узнать, как мы можем вам помочь.</p>  
+        <form class="contact-form">  
+            <input type="text" placeholder="Ваше имя" required>  
+            <input type="email" placeholder="Ваш Email" required>  
+            <textarea placeholder="Ваше сообщение" rows="5" required></textarea>  
+            <button type="submit">Отправить</button>  
+        </form>  
+    </section>  
+
+    <section id="photo-gallery">  
+        <h2>Галерея фото</h2>  
+        <div class="photo-section">  
+            <div class="photo-container" onclick="openPhotoForm('photo1')">  
+                <img src="https://res.cloudinary.com/dz209s6jk/image/upload/v1668186504/Challenges/vxhhu11tdpmyw2srepdk.jpg" alt="Описание фотографии 1">  
+                <h3>WORKING 1</h3>  
+                <p>Нажм</p>  
+            </div>  
+            <div class="photo-container" onclick="openPhotoForm('photo2')">  
+                <img src="https://i.pinimg.com/originals/62/c6/5e/62c65ecc036bf4483cb79056737ecef8.png" alt="Описание фотографии 2">  
+                <h3>WORKING 2</h3>  
+                <p>Нажмите для дополнительных сведений.</p>  
+            </div>  
+            <div class="photo-container" onclick="openPhotoForm('photo3')">  
+                <img src="https://cdn.freelance.ru/img/portfolio/pics/00/39/B7/3782622.jpg?mt=89ce9bde" alt="Описание фотографии 3">  
+                <h3>WORKING 3</h3>  
+                <p>Нажмите для дополнительных сведений.</p>  
+            </div>  
+        </div>  
+        <div id="photo-form" style="display:none; background: #222; padding: 20px; margin-top: 20px;">  
+            <h2>Форма для фото</h2>  
+            <form class="contact-form">  
+                <input type="text" placeholder="Ваше имя" required>  
+                <input type="email" placeholder="Ваш Email" required>  
+                <textarea placeholder="Ваше сообщение о фотографии" rows="5" required></textarea>  
+                <button type="submit">Отправить</button>  
+            </form>  
+        </div>  
+    </section>  
+
+    <section class="developer-card">  
+        <h2>Карточка разработчика</h2>  
+        <p><strong>Имя:</strong> Иванов Иван</p>  
+        <p><strong>Должность:</strong> Веб-разработчик</p>  
+        <p><strong>Опыт работы:</strong> Более 5 лет в области веб-разработки. Работал с множеством технологий, включая JavaScript, HTML, CSS, React и Node.js.</p>  
+        <p><strong>Контакт:</strong> ivanov@example.com</p>  
+        <p><strong>Портфолио:</strong> <a href="#" style="color: #d5006d;">ivanovportfolio.com</a></p>  
+    </section>  
+
+    <footer>  
+        <p>&copy; 2024 Разработка на JavaScript</p>  
+        <div>  
+            <a href="#about">О нас</a>  
+            <a href="#services">Услуги</a>  
+            <a href="#portfolio">Портфолио</a>  
+            <a href="#contact">Контакты</a>  
+        </div>  
+    </footer>  
+
+    <script>  
+        function toggleMenu() {  
+            const menu = document.getElementById('nav-menu');  
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';  
+        }  
+
+        function toggleService(serviceId) {  
+            const serviceDiv = document.getElementById(serviceId);  
+            serviceDiv.style.display = serviceDiv.style.display === 'block' ? 'none' : 'block';  
+        }  
+
+        function openPhotoForm(photoId) {  
+            const form = document.getElementById('photo-form');  
+            form.style.display = 'block';  
+            form.querySelector('h2').innerText = 'Форма для ' + photoId; // Изменяем заголовок формы  
+        }  
+    </script>  
+</body>  
+
+</html>
